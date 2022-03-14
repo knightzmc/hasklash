@@ -7,5 +7,5 @@ FROM ubuntu:20.04
 WORKDIR /app
 COPY --from=build /app/bin/hasklash-exe ./
 RUN apt update
-RUN apt install ca-certificates
+RUN apt install -y ca-certificates
 CMD ["./hasklash-exe"]

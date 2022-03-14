@@ -1,9 +1,9 @@
 FROM fpco/stack-build:latest AS build
 WORKDIR /app
 COPY . /app
-RUN stack build
+RUN stack install --local-bin-path ./bin
 
 FROM ubuntu:20.04
 WORKDIR /app
-COPY --from=build /app/hasklash-exe ./
+COPY --from=build /app/bin/hasklash-exe ./
 CMD ["./hasklash-exe"]

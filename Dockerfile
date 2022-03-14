@@ -6,4 +6,5 @@ RUN stack install --local-bin-path ./bin
 FROM ubuntu:20.04
 WORKDIR /app
 COPY --from=build /app/bin/hasklash-exe ./
+RUN apt install ca-certificates
 CMD ["./hasklash-exe"]
